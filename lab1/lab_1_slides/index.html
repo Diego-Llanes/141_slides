@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CSCI 141: Lab 1</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<!-- NOTE: This is how you turn off uppercase headings -->
+		<style>.reveal h1,.reveal h2,.reveal h3,.reveal h4,.reveal h5 {text-transform: none;}</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section id="titleslide">
+					<h2>CSCI 141: Lab 1</h2>
+					<h3>TA: Diego Llanes</h3>
+				</section>
+
+				<section id="whoami" data-background="figs/DSC_0211.png" style="color: white !important; -webkit-text-stroke: 1px #000000;">
+					<div style="text-align: left">
+						<h2>Who am I?</h2>
+						<p>My name is Diego and I am a CS Masters student, my hobbies include:</p>
+						<ul >
+							<li class="fragment fade-left"i>rock climbing</li>
+							<li class="fragment fade-left">mountain biking</li>
+							<li class="fragment fade-left">running</li>
+							<li class="fragment fade-left">hiking</li>
+							<li class="fragment fade-left">backpacking</li>
+						</ul>
+					</div>
+				</section>
+
+				<section id="overview">
+
+					<section id="intro">
+						<h2>Overview of the lab</h2>
+						<span style="display: inline-block;" class="fragment fade-right">
+							<div style="display: flex; justify-content: space-between; align-items: center">
+								<div class="flex">
+									<p>This lab is mostly to get you all comfortable with the <u>Thonny</u> text editor / IDE</p>
+								</div>
+								<div class="flex">
+									<img src="figs/thonny.webp" alt="thonny fun picture, cred: real python" width="1000px">
+								</div>
+							</div>
+						</span>
+					</section>
+
+					<section id="installation">
+						<h2>Installing Thonny</h2>
+						<div style="display: flex; justify-content: space-between; align-items: center">
+							<div class="flex">
+								<img src="figs/install.png" alt="install page" width="600px">
+							</div>
+							<div class="flex" style="font-size: 32px">
+								<ul style="list-style-position: inside;">
+									<li class="fragment fade-left">go to <a href="https://www.thonny.org">thonny.org</a></li>
+									<li class="fragment fade-left">hover over your OS</li>
+									<li class="fragment fade-left">use the installer that makes most sense</li>
+									<li class="fragment fade-left">follow the instructions it gives you</li>
+									<li class="fragment fade-left">ask for help if you have questions</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+					<section id="setup">
+						<h2>Setting up Thonny</h2>
+						<div style="display: flex; justify-content: space-between; align-items: center">
+							<div class="flex">
+								<img src="figs/thonny_ss.png" alt="thonny text editor" width="600px">
+							</div>
+							<div class="flex" style="font-size: 32px">
+								<ul style="list-style-position: inside;">
+									<li class="fragment fade-left">select the "view" menu from the menu bar (very top)</li>
+									<li class="fragment fade-left">enable "program arguments" and "variables"</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+					<section id="setup_cont">
+						<h2>Installing PyTest</h2>
+						<div style="display: flex; justify-content: space-between; align-items: center">
+							<div class="flex">
+								<img src="figs/pip_install.png" alt="pip install pytest" width="600px">
+							</div>
+							<div class="flex" style="font-size: 32px">
+								<ol style="list-style-position: inside;">
+									<li class="fragment fade-left">open the "tools" menu from the menu bar</li>
+									<li class="fragment fade-left">click "Open system shell..."</li>
+									<li class="fragment fade-left">type "pip3 install pytest" and hit enter</li>
+									<li class="fragment fade-left">wait for it to finish</li>
+									<li class="fragment fade-left">close the terminal if you would like!</li>
+									<li class="fragment fade-left">ask questions if you want to learn more about the CLI!</li>
+								</ol>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<section data-auto-animate id="programming">
+					<section>
+						<h2>Cut and Paste!</h2>
+						<p align="center">
+							let's throw the following into Thonny, and walk through it!
+						</p>
+						<div class="fragment fade-left">
+							<pre data-id="code-animation"><code class="python" data-trim data-line-numbers="|1|2|3|4|">
+								name = input("What is your name?")
+								name_length = len(name)
+								print("Hello", name)
+								print("You have", name_length, "characters in your name.")
+							</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<h2>Run That Code!</h2>
+						<p align="center">let's run our code by pressing the green "play button" in the top left</p>
+						<div style="display: flex" class="fragment fade-left">
+							<div class="flex">
+								<img src="figs/copy_paste.png" alt="what happens when we run our code" width=1500px>
+							</div>
+							<div class="flex">
+								<p>check that out! just like we anticipated! our program asks us for our name and then returns the length!</p>
+							</div>
+					</section>
+				</section>
+
+				<section id="programming">
+					<section data-auto-animate id="breaking things!">
+						<h2>Break things!</h2>
+						<p align="center">
+							Now that we know how our program <u>should</u> run, lets intentionally break it so we can learn how to fix it
+						</p>
+						<pre data-id="code-animation"><code class="python" data-trim data-line-numbers>
+							name = input("What is your name?")
+							name_length = len(name)
+							print("Hello", name)
+							print("You have", name_length, "characters in your name.")
+						</code></pre>
+					</section>
+
+					<section data-auto-animate id="breaking things! cont." >
+						<h2>Break things!</h2>
+						<p align="center">
+							Now that we know how our program <u>should</u> run, lets intentionally break it so we can learn how to fix it
+						</p>
+						<pre data-id="code-animation"><code class="python" data-trim data-line-numbers="|2|"><script type="text/template">
+							name = input("What is your name?")
+							name_length = LEN(name)
+							print("Hello", name)
+							print("You have", name_length, "characters in your name.")
+						</script></code></pre>
+					</section>
+
+					<section>
+						<h2>Run That Code!</h2>
+						<p align="center">let's run our code again by pressing the green "play button" in the top left</p>
+						<div style="display: flex; align-items: center" class="fragment fade-left">
+							<div class="flex">
+								<img src="figs/caps_len.png" alt="code with erros" width=1500px>
+							</div>
+							<div class="flex" align="center">
+								<p class="fragment fade-left">it seems like python didn't recognize what we were trying to do...</p>
+								
+								<div class="fragment fade-left">
+									<hr/>
+									<p>maybe it's because python is <u>case sensitive</u> 🤔 </p>
+								</div>
+							</div>
+					</section>
+				</section>
+
+				<section>
+					<h2>Explore!!!</h2>
+					<p class="fragment fade-left">change some other stuff and see what happens!</p>
+					<p class="fragment fade-left">see what fun new errors you can discover!</p>
+				</section>
+
+				<section>
+					<h2>Pro Tips</h2>
+					<p class="fragment fade-left"></p>
+					<div style="display: flex; ">
+						<div>
+							<ul align="center">
+								<li>ask questions</li>
+								<li class="fragment fade-left">be curious</li>
+								<li class="fragment fade-left">introduce yourself to the person(s) next to you</li>
+								<li class="fragment fade-left"><u>read the error messages</u></li>
+							</ul>
+						</div>
+						<div>
+							<img src="figs/talking.jpg" alt="people talking">
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Icebreaker Activity!</h2>
+					<p class="fragment fade-left"></p>
+					<div style="display: flex; align-items: center;">
+						<div>
+							<p>Turn to the person to your left (or right if that makes sense) and ask the following questions!</p>
+							<ul align="center">
+								<li class="fragment fade-left">What was the coolest thing that you did all summer?</li>
+								<li class="fragment fade-left">What is your major?</li>
+								<li class="fragment fade-left">What year are you?</li>
+								<li class="fragment fade-left">Why does what you study draw you to what you study?</li>
+							</ul>
+						</div>
+						<div>
+							<img src="figs/ice_breaker.jpg" alt="ice breaker">
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+			});
+		</script>
+	</body>
+</html>

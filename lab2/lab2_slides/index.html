@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Lab 2 Slides</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<!-- NOTE: This is how you turn off uppercase headings -->
+		<style>.reveal h1,.reveal h2,.reveal h3,.reveal h4,.reveal h5 {text-transform: none;}</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Lab 2: Linux Command Line</h1>
+					<h2>TA: Diego Llanes</h2>
+				</section>
+				<section>
+					<h2>What is the lab about?</h2>
+					<div style="display: flex; justify-content: space-between; align-items: center">
+						<div class="flex" style="font-size: 32px">
+							<p><strong>Expected Outcomes</strong></p>
+							<ul style="list-style-position: inside;">
+								<li class="fragment fade-left">basic familiarity with the command line</li>
+								<li class="fragment fade-left">knowing what the command line is used for</li>
+								<li class="fragment fade-left">how to interact with python from a shell</li>
+							</ul>
+
+						</div>
+						<div class="flex">
+							<img src="figs/linux.jpg" width="600px">
+						</div>
+					</div>
+				</section>
+				<section>
+					<section>
+						<h2>Basic Commands</h2>
+						<p>
+							There are a few basic commands that you are going to need to know to interact with a
+							Linux machine.
+						</p>
+						<ul style="list-style-position: inside;">
+							<li class="fragment fade-left"><code>pwd</code>: print working directory</li>
+							<li class="fragment fade-left"><code>ls</code>: list files</li>
+							<li class="fragment fade-left"><code>cd</code>: change directory</li>
+							<li class="fragment fade-left"><code>mkdir</code>: make directory</li>
+							<li class="fragment fade-left"><code>touch</code>: create a new file</li>
+							<li class="fragment fade-left"><code>python</code>: a python interpreter</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Where are we???</h2>
+						<p>the basic usage of the <code>pwd</code> command always just <code>pwd</code> (print working directory)</p>
+						<p class="fragment fade-left">
+							when you type this into your shell you should see print out of what directory we are in, if we just started this shell, it's probably your home directory: <code>/home/USERNAME</code>
+						</p>
+						<p class="fragment fade-left">
+							you may be thinking to yourself, "okay that's great, but what is a directory???"
+						</p>
+					</section>
+					<section>
+						<h2>Where are we??? (cont.)</h2>
+						<p class="fragment fade-left">
+							a directory is effectively a synonym for "folder", what's important to know about directories is that they are just places that we put files.
+						</p>
+						<pre class="fragment fade-left"><code data-trim data-noescape>
+							$ ls 
+							file1.txt file2.py dir1 dir2
+							$ ls dir1
+							super_secrets.md awesome_picture.png
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Finding Files</h2>
+						<p>the basic usage of the <code>ls</code> command is simply <code>ls</code> (list files)</p>
+						<p class="fragment fade-left">
+							when you type this into your shell you should see all the files available to you from that directory
+						</p>
+						<p class="fragment fade-left">
+							We can also pass this command other directories to see what's inside them!
+						</p>
+						<pre class="fragment fade-left"><code data-trim data-noescape>
+							$ ls 
+							file1.txt file2.py dir1 dir2
+							$ ls dir1
+							super_secrets.md awesome_picture.png
+						</code></pre>
+					</section>
+					<section>
+						<h2>Finding Files (cont.)</h2>
+						<div style="display: flex; justify-content: space-between; align-items: center">
+							<div class="flex" style="font-size: 32px">
+								<p>
+								<strong>pro-tip</strong>: if you like a more graphical approach, check out the <code>tree</code> command
+								</p>
+							</div>
+							<div class="flex">
+								<img src="figs/tree.webp" width="600px">
+							</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Navigation</h2>
+						<p>The basic usage of the <code>cd</code> (change directory) command is:</p>
+						<p><code>cd directory1/directory2</code></p>
+						<p class="fragment fade-left">
+							Now that we know where we are and how what files and directories are available to us, let's put it all together and move around!
+						</p>
+					</section>
+					<section data-auto-animate>
+						<h2>Navigation (cont.)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ pwd
+							/home/USERNAME
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Navigation (cont.)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ pwd
+							/home/USERNAME
+							$ ls
+							file1.txt file2.py dir1 dir2
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Navigation (cont.)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ pwd
+							/home/USERNAME
+							$ ls
+							file1.txt file2.py dir1 dir2
+							$ cd dir1
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Navigation (cont.)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ pwd
+							/home/USERNAME
+							$ ls
+							file1.txt file2.py dir1 dir2
+							$ cd dir1
+							$ ls
+							super_secrets.md awesome_picture.png
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Navigation (cont.)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ pwd
+							/home/USERNAME
+							$ ls
+							file1.txt file2.py dir1 dir2
+							$ cd dir1
+							$ ls
+							super_secrets.md awesome_picture.png
+							$ pwd
+							/home/USERNAME/dir1
+					    </code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Making Files and Directories (cont.)</h2>
+						<p>our two ways of making new stuff are:</p>
+						<ul style="list-style-position: inside;">
+							<li class="fragment fade-left">touch: to make new <u>files</u></li>
+							<li class="fragment fade-left">mkdir: to make new <u>directories</u></li>
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h2>Making Files and Directories (cont.)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ ls
+							file1.txt file2.py dir1 dir2
+							$ mkdir homework_folder
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Making Files and Directories (cont.)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ ls
+							file1.txt file2.py dir1 dir2
+							$ mkdir homework_folder
+							$ ls
+							file1.txt file2.py dir1 dir2 homework_folder
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Making Files and Directories (cont.)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ ls
+							file1.txt file2.py dir1 dir2
+							$ mkdir homework_folder
+							$ ls
+							file1.txt file2.py dir1 dir2 homework_folder
+							$ cd homework_folder
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Making Files and Directories (cont.)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ ls
+							file1.txt file2.py dir1 dir2
+							$ mkdir homework_folder
+							$ ls
+							file1.txt file2.py dir1 dir2 homework_folder
+							$ cd homework_folder
+							$ touch hw1.py
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Making Files and Directories (cont.)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ ls
+							file1.txt file2.py dir1 dir2
+							$ mkdir homework_folder
+							$ ls
+							file1.txt file2.py dir1 dir2 homework_folder
+							$ cd homework_folder
+							$ touch hw1.py
+							$ pwd
+							/home/USERNAME/homework_folder
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Making Files and Directories (cont.)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ ls
+							file1.txt file2.py dir1 dir2
+							$ mkdir homework_folder
+							$ ls
+							file1.txt file2.py dir1 dir2 homework_folder
+							$ cd homework_folder
+							$ touch hw1.py
+							$ pwd
+							/home/USERNAME/homework_folder
+							$ ls 
+							hw1.py
+					    </code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Using Python In The CLI</h2>
+						<p> Now that we know how to move around in the terminal and start being productive with it, we need to learn how to use Python!</p>
+						<p class="fragment fade-left">the basic usage is as follows:</p>
+						<ul style="list-style-position: inside;">
+							<li class="fragment fade-left"><code>python</code>: to start a live interpreter</li>
+							<li class="fragment fade-left"><code>python file.py</code>: to execute a saved program</li>
+						</ul>
+					</section>
+					<section data-auto-animate>
+						<h2>Using Python In The CLI (interpreter)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ python
+							>>> 
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Using Python In The CLI (interpreter)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ python
+							>>> print("hello world!")
+							hello world!
+							>>>
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Using Python In The CLI (interpreter)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ python
+							>>> print("hello world!")
+							hello world!
+							>>> 21 * 0.2
+							4.2
+							>>>
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Using Python In The CLI (interpreter)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							$ python
+							>>> print("hello world!")
+							hello world!
+							>>> 21 * 0.2
+							4.2
+							>>> exit()
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Using Python In The CLI (from files)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							# the `cat` command will print the contents of a file
+							$ cat file.py
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Using Python In The CLI (from files)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							# the `cat` command will print the contents of a file
+							$ cat file.py
+							print("this is from a saved file!")
+					    </code></pre>
+					</section>
+					<section data-auto-animate>
+						<h2>Using Python In The CLI (from files)</h2>
+					    <pre data-id="code-animation"><code data-trim data-line-numbers>
+							# the `cat` command will print the contents of a file
+							$ cat file.py
+							print("this is from a saved file!")
+							$ python file.py
+							this is from a saved file!
+					    </code></pre>
+					</section>
+				</section>
+				<section>
+					<h2>Overwhelming</h2>
+					<p>if you are feeling a little overwhelmed right now, don't worry, it is a <u>lot</u> of new information</p>
+					<p class="fragment fade-left">please ask questions, I am here to help guide, this is a lot, I get it</p>
+					<p class="fragment fade-left">also please talk the people next to you, collaborate and help eachother!</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

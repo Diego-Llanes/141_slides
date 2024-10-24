@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Lab 4 Slides</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<!-- NOTE: This is how you turn off uppercase headings -->
+		<style>.reveal h1,.reveal h2,.reveal h3,.reveal h4,.reveal h5 {text-transform: none;}</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Lab 4</h2>
+					<h3>Diego Llanes</h3>
+				</section>
+
+				<section>
+					<h2>What is the lab about?</h2>
+					<div style="display: flex; justify-content: space-between; align-items: center">
+						<div class="flex" style="font-size: 32px">
+							<p><strong>Expected Outcomes</strong></p>
+							<ul style="list-style-position: inside;">
+								<li class="fragment fade-left">experience with for loops</li>
+								<li class="fragment fade-left">experience with the turtle package</li>
+								<li class="fragment fade-left">make awesome looking graphics!!!</li>
+							</ul>
+
+						</div>
+						<div class="flex">
+							<img src="figs/julia.gif" width="600px">
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<section>
+						<h2><code>for</code> loops</h2>
+
+						<p>you hopefully all have seen these in class</p>
+						<p class="fragment fade-left">but in case you havent seen them, heres how they work as a refresher</p>
+						<pre class="fragment fade-left" data-id="code-animation"><code data-trim data-line-numbers>
+						for item in iterable:
+							print(item)
+						</code></pre>
+					</section>
+					<section>
+						<h2><code>for</code> loops (cont.)</h2>
+
+						<p>in other words we can do either of the following: </p>
+
+						<div style="display: flex; justify-content: space-between; align-items: center">
+							<div class="flex">
+								<pre data-id="code-animation"><code data-trim data-line-numbers>
+								for i in range(42):            #
+									print(i)
+								</code></pre>
+							</div>
+							<div class="flex">
+								<pre data-id="code-animation"><code data-trim data-line-numbers>
+								list = [1,2,3,4]               #
+								for item in list:
+									print(item)
+								</code></pre>
+							</div>
+						</div>
+						<p class="fragment fade-left">we just need something that we can routinely take a value out of!</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>turtles!!! 🐢🐢🐢</h2>
+
+					<p>you might be thinking to yourself: "okay but what do turtles have to do with python?" </p>
+					<p class="fragment fade-left">
+						<code>turtle</code> is a package that allows you to make cute and easy little drawings! 
+						<!-- with just a little bit of work we can make some pretty awesome looking stuff! -->
+					</p>
+					<div class="fragment fade-left" style="display: flex; justify-content: space-between; align-items: center">
+						<div class="flex">
+							<pre data-id="code-animation"><code data-trim data-line-numbers>
+							import turtle                        .
+							t.forward(100)
+							t.left(90)
+							t.forward(100)
+							turtle.update()
+							</code></pre>
+						</div>
+						<div class="flex">
+							<img src="figs/easy_turtle.png">
+						</div>
+					</div>
+				</section>
+				<section>
+					<h2>what if combine it all?</h2>
+					<p>you can probably see the possibilities of what we could make if we dropped in a loop or two! </p>
+					<div class="fragment fade-left" style="display: flex; justify-content: space-between; align-items: center">
+						<div class="flex">
+							<img src="figs/fractal_turtle.webp" height="300">
+						</div>
+						<div class="flex">
+							<img src="figs/turtle.jpg" height="300">
+						</div>
+					</div>
+				</section>
+				<section>
+					<h2>give it a spin!</h2>
+					<p>
+						This lab is going to have you print out some cool patterns to the terminal!
+					</p>
+					<p class="class fragment fade-left">
+						Once we're all comfortable with that, were gonna mix in some graphix 😎
+					</p>
+					<div class="fragment fade-left" style="display: flex; justify-content: space-between; align-items: center">
+						<div class="flex">
+							<img src="figs/diamonds.png" height="300">
+						</div>
+						<div class="flex">
+							<img src="figs/turtlecolor.png" height="300">
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>chit chat!</h2>
+					Have a blast, ask questions, turn to your neighbor, be friendly, don't bite
+
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

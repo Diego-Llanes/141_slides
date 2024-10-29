@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<!-- NOTE: This is how you turn off uppercase headings -->
+		<style>.reveal h1,.reveal h2,.reveal h3,.reveal h4,.reveal h5 {text-transform: none;}</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Lab 5: functions</h2>
+					<h3>Diego Llanes</h3>
+				</section>
+
+				<section>
+					<section data-auto-animate>
+						<h2>What is a function?</h2>
+						<p>a function is just a "block" of code that you can name, and then call again later</p>
+						<p class="fragment fade-left">
+							they can be particularly useful for when we have a block of code that we want to execute
+							routinely with small differences.
+						</p>
+
+
+					</section>
+					<section data-auto-animate>
+						<h2>What is a function?</h2>
+						<p>for example what if we had the following group of code</p>
+						<pre data-id="code">
+							<code data-line-numbers class="hljs" data-trim>
+							name = input("who are you? ")
+							print("hello ", name * 200)
+							</code>
+						</pre>
+						<p class="fragment fade-left">but what if we wanted to change this 200 to be something else in the future?</p>
+					</section>
+					<section data-auto-animate>
+						<h2>What is a function?</h2>
+						<p>we could group this into a function and call it over and over again!</p>
+						<pre data-id="code">
+							<code data-line-numbers data-trim>
+							def greet_a_lot(name, num)
+								print("hello ", name * num)
+
+							name = input("who are you? ")
+							for i in range(99999):
+								greet_a_lot(name, 999999999999999)
+								print(i)
+							</code>
+						</pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>What is scope?</h2>
+						<p>scope just restricts access to certain variables</p>
+						<img src="figs/scope.jpg" height="400em">
+					</section>
+					<section>
+						<h2>What is scope?</h2>
+						<p>here is a code block that might help reinforce some of the concepts</p>
+						<pre data-id="code">
+							<code data-line-numbers data-trim>
+							GLOBAL_VAR = 10
+							def func1():
+								print(GLOBAL_VAR)
+								var1 = 5
+								print(var1)
+							def func2(arg1):
+								print(arg1)
+								print(GLOBAL_VAR)
+							if __name__ == "__main__":
+								func1()
+								func2()
+								print(arg1) # Throws an error, we don't have access
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>What is scope?</h2>
+						<p>scope can be a little confusing at first so don't be afraid to ask questions</p>
+					</section>
+				</section>
+				<section>
+					<h2>turn <code>and</code> talk</h2>
+					<p>as always, turn and chat with your neighbors, be friendly, work together and ask questions if you need, have a blast!</p>
+					<img src="figs/discussion.jpg" height="350em">
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
